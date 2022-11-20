@@ -23,5 +23,5 @@ jobs:
             - run: pm2 -V
             - run: pm2 list
             - run: pm2 delete -s water-park-api-dev
-            - run: NODE_ENV=development pm2 start ./dist/index.js --name=water-park-api-dev
+            - run: NODE_ENV=development pm2 start pm2.config.js
             - run: ip a
