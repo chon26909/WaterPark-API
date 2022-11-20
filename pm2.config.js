@@ -7,7 +7,8 @@ module.exports = {
                 NODE_ENV: 'development',
             },
             env_development: {
-                NODE_ENV: 'test',
+                NODE_ENV: 'development',
+                PORT: 4001,
             },
             env_uat: {
                 NODE_ENV: 'uat',
