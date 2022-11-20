@@ -13,5 +13,5 @@ const PORT: number = Number(process.env.PORT) || 4000;
 connectMongoDB();
 app.use(express.json());
 app.use('/auth', authRoutes);
-app.get('/', (_, res: Response) => res.status(200).json({ message: 'Hello World CI/CD test' }));
+app.get('/', (_, res: Response) => res.status(200).json({ message: 'Hello World : ' + Date() }));
 app.listen(PORT, () => console.log('http://localhost:' + PORT));
