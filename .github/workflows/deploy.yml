@@ -23,5 +23,5 @@ jobs:
             - run: pm2 -V
             - run: pm2 delete water-park-api-dev
             - run: pm2 list
-            - run: NODE_ENV=development pm2 start ./dist/index.js --name=water-park-api-dev --watch
+            - run: NODE_ENV=development pm2 start ./dist/index.js --name=water-park-api-dev
             - run: ip a
