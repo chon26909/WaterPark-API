@@ -25,5 +25,4 @@ jobs:
             - run: pm2 -V
             - run: pm2 list
             - run: NODE_ENV=development pm2 start ./dist/index.js --name=water-park-api-dev --watch
-            # - run: pm2 start ./dist/index.js --name=api-dev --watch
             - run: ip a
