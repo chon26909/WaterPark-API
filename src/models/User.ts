@@ -1,38 +1,58 @@
 import { Document, model, Schema, SchemaOptions } from 'mongoose';
 
 interface IUserDocument extends Document {
-  firstname: string;
-  lastname: string;
-  phone: string;
-  email: string;
-  password: string;
-  salt: string;
-  photoUrl: string;
+    firstname: string;
+    lastname: string;
+    phone: string;
+    email: string;
+    password: string;
+    salt: string;
+    photoUrl: string;
 }
 
 const options: SchemaOptions = {
-  toJSON: {
-    transform(doc, ret) {
-      delete ret._id;
-      delete ret.password;
-      delete ret.salt;
-      delete ret.createAt;
-      delete ret.updateAt;
+    toJSON: {
+        transform(doc, ret) {
+            delete ret._id;
+            delete ret.password;
+            delete ret.salt;
+            delete ret.createAt;
+            delete ret.updateAt;
+        },
     },
-  },
+    timestamps: true,
 };
 
 const userSchema = new Schema(
-  {
-    firstname: { type: String },
-    lastname: { type: String },
-    phone: { type: String },
-    email: { type: String },
-    password: { type: String },
-    salt: { type: String },
-    photoUrl: { type: String },
-  },
-  options
+    {
+        firstname: {
+            type: String,
+            require: true,
+        },
+        lastname: {
+            type: String,
+            require: true,
+        },
+        phone: {
+            type: String,
+            unique: true,
+        },
+        email: {
+            type: String,
+            require: true,
+            unique: true,
+        },
+        password: {
+            type: String,
+            require: true,
+        },
+        salt: {
+            type: String,
+            require: true,
+        },
+        photoUrl: String,
+    },
+    options
 );
 
 const User = model<IUserDocument>('users', userSchema);
