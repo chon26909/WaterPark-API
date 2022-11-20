@@ -16,4 +16,4 @@ app.use('/auth', authRoutes);
 app.get('/', (_, res: Response) =>
     res.status(200).json({ message: 'Hello World : ' + new Date() })
 );
-app.listen(PORT, () => console.log('http://localhost:' + PORT));
+app.listen(PORT, () => console.log('server running port :' + PORT));
