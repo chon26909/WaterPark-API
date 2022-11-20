@@ -9,8 +9,9 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        runs-on: development-server
         runs-on: self-hosted
+        runs-on: development-server
+        
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
