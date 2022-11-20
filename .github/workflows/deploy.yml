@@ -3,8 +3,6 @@ name: Deploy DEV
 on:
     push:
         branches: ['dev']
-    pull_request:
-        branches: ['dev']
 
 jobs:
     build:
@@ -23,6 +21,7 @@ jobs:
             - run: npm install
             - run: npm run build
             - run: pm2 -V
+            - run: pm2 delete water-park-api-dev
             - run: pm2 list
             - run: NODE_ENV=development pm2 start ./dist/index.js --name=water-park-api-dev --watch
             - run: ip a
