@@ -1,23 +1,23 @@
-name: Deploy DEV 
+name: Deploy DEV
 
 on:
-  push:
-    branches: [ "dev" ]
-  pull_request:
-    branches: [ "dev" ]
+    push:
+        branches: ['dev']
+    pull_request:
+        branches: ['dev']
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm install
-    - run: npm run build 
-    - run: node ./dist/index.js
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: npm ci
+            - run: npm install
+            - run: npm run build
+            - run: npm i pm2
+            - run: pm2 start ./dist/index.js --name=api-dev
