@@ -9,6 +9,7 @@ on:
 jobs:
     build:
         runs-on:
+            - ubuntu-latest
             - self-hosted
             - development-server
 
@@ -22,6 +23,7 @@ jobs:
             - run: node -v
             - run: npm install
             - run: npm run build
+            - run: npm install pm2@latest -g
             - run: pm2 -V
             - run: pm2 list
             - run: pm2 start ./dist/index.js --name=api-dev --watch
