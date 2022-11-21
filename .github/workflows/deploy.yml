@@ -3,30 +3,22 @@ name: Deploy DEV
 on:
     push:
         branches: ['dev']
-        
-runs-on:
-        - self-hosted
-        - development-server 
-    uses: actions/checkout@v3
-        - name: Use Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v3
-        with:
-            node-version: ${{ matrix.node-version }}
-            cache: 'npm'
+
 jobs:
-    
     build:
-        
+        runs-on:
+            - self-hosted
+            - development-server
         steps:
-           
+            # - uses: actions/checkout@v3
+            # - name: Use Node.js ${{ matrix.node-version }}
+            #   uses: actions/setup-node@v3
+            #   with:
+            #       node-version: ${{ matrix.node-version }}
+            #       cache: 'npm'
             - run: node -v
             - run: npm install
             - run: npm run build
-            # - run: pm2 -v
-            # - run: pm2 list
-            # - run: pm2 delete -s water-park-api-dev
-            # - run: pm2 start ecosystem.config.js --env development
-            # - run: ip a
     deploy:
         # runs-on:
         #     - self-hosted
