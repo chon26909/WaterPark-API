@@ -1,14 +1,14 @@
-name: Deploy DEV
+name: Deploy UAT
 
 on:
     push:
-        branches: ['dev']
+        branches: ['uat']
 
 jobs:
     build:
         runs-on:
             - self-hosted
-            - development-server
+            - uat-server
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
@@ -23,9 +23,8 @@ jobs:
         needs: build
         runs-on:
             - self-hosted
-            - development-server
+            - uat-server
         steps:
             - run: pm2 -v
             - run: pm2 list
-            - run: pm2 start ecosystem.config.js --env development
-            - run: ip a
+            - run: pm2 start ecosystem.config.js --env uat

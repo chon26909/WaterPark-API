@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'water-park-api-dev',
+            // name: 'water-park-api-dev',
             script: './dist/index.js',
             env_development: {
                 NODE_ENV: 'development',
