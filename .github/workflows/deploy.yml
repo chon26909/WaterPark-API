@@ -3,9 +3,8 @@ name: Deploy DEV
 on:
     push:
         branches: ['dev']
-
-jobs:
-    runs-on:
+        
+runs-on:
         - self-hosted
         - development-server 
     uses: actions/checkout@v3
@@ -14,6 +13,8 @@ jobs:
         with:
             node-version: ${{ matrix.node-version }}
             cache: 'npm'
+jobs:
+    
     build:
         
         steps:
