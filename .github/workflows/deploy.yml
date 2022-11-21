@@ -10,19 +10,19 @@ jobs:
             - self-hosted
             - development-server
         steps:
-            # - uses: actions/checkout@v3
-            # - name: Use Node.js ${{ matrix.node-version }}
-            #   uses: actions/setup-node@v3
-            #   with:
-            #       node-version: ${{ matrix.node-version }}
-            #       cache: 'npm'
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
             - run: node -v
             - run: npm install
             - run: npm run build
     deploy:
-        # runs-on:
-        #     - self-hosted
-        #     - development-server
+        runs-on:
+            - self-hosted
+            - development-server
         steps:
             # - uses: actions/checkout@v3
             # - name: Use Node.js ${{ matrix.node-version }}
@@ -34,4 +34,4 @@ jobs:
             - run: pm2 list
             - run: pm2 delete -s water-park-api-dev
             - run: pm2 start ecosystem.config.js --env development
-            - run: ip a
+            - run: hostname -i
