@@ -32,6 +32,5 @@ jobs:
                   cache: 'npm'
             - run: pm2 -v
             - run: pm2 list
-            - run: pm2 delete -s water-park-api-dev
             - run: pm2 start ecosystem.config.js --env development
             - run: hostname -i
