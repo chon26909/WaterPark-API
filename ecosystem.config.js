@@ -3,7 +3,7 @@ module.exports = {
         {
             name: 'waterpark-api-dev',
             script: './dist/index.js',
-            log_date_format: 'YYYY-MM-DD HH:mm Z',
+            watch: true,
             env_development: {
                 NODE_ENV: 'development',
                 PORT: 4002,
