@@ -4,7 +4,6 @@ module.exports = {
             name: 'water-park-api-dev',
             script: './dist/index.js',
             env: {
-                NODE_ENV: 'development',
                 PORT: 4002,
                 MONGO_URI:
                     'mongodb+srv://water:1234@cluster0.aa3kc.mongodb.net/DEV?retryWrites=true&w=majority',
