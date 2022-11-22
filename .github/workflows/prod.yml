@@ -26,5 +26,5 @@ jobs:
             - production-server
         steps:
             - run: pm2 -v
+            - run: pm2 start ./config/prod.config.js
             - run: pm2 list
-            - run: pm2 start ecosystem.config.js --env production
