@@ -27,4 +27,4 @@ jobs:
         steps:
             - run: pm2 -v
             - run: pm2 list
-            - run: pm2 start ecosystem.config.js --env development
+            - run: pm2 start ecosystem.config.js --env=development --name=waterpark-api-dev
