@@ -25,6 +25,11 @@ jobs:
             - self-hosted
             - development-server
         steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
             - run: pm2 -v
             - run: pm2 start ecosystem.config.js --env development
-            - run: pm2 save --force
