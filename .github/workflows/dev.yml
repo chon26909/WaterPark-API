@@ -11,11 +11,11 @@ jobs:
             - development-server
         steps:
             - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
+            # - name: Use Node.js ${{ matrix.node-version }}
+            #   uses: actions/setup-node@v3
+            #   with:
+            #       node-version: ${{ matrix.node-version }}
+            #       cache: 'npm'
             - run: node -v
             - run: npm install
             - run: npm run build
@@ -26,7 +26,5 @@ jobs:
             - self-hosted
             - development-server
         steps:
-            - run: ls -l
             - run: pm2 -v
-            - run: pm2 start ecosystem.config.js --env development
-            - run: ip a
+            - run: pm2 start pm2_dev.config.js --env development
