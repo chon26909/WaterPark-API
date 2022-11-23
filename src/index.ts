@@ -8,7 +8,7 @@ import { connectMongoDB } from './configs/mongoDB';
 dotenv.config();
 
 const app = express();
-const PORT: number = Number(process.env.PORT);
+const PORT: number = Number(process.env.PORT) || 4000;
 
 connectMongoDB();
 app.use(express.json());
