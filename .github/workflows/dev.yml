@@ -19,6 +19,13 @@ jobs:
             - run: node -v
             - run: npm install
             - run: npm run build
+
+    deploy:
+        needs: build
+        runs-on:
+            - self-hosted
+            - development-server
+        steps:
             - run: ls -l
             - run: pm2 -v
             - run: pm2 list
@@ -26,23 +33,3 @@ jobs:
             - run: ls -l
             - run: ip a
             - run: pm2 list
-
-    # deploy:
-    #     needs: build
-    #     runs-on:
-    #         - self-hosted
-    #         - development-server
-    #     steps:
-    #         - uses: actions/checkout@v3
-    #         - name: Use Node.js ${{ matrix.node-version }}
-    #           uses: actions/setup-node@v3
-    #           with:
-    #               node-version: ${{ matrix.node-version }}
-    #               cache: 'npm'
-    #         - run: ls -l
-    #         - run: pm2 -v
-    #         - run: pm2 list
-    #         - run: pm2 start ecosystem.config.js --env development
-    #         - run: ls -l
-    #         - run: ip a
-    #         - run: pm2 list
