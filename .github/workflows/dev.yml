@@ -19,8 +19,6 @@ jobs:
             - run: node -v
             - run: npm install
             - run: npm run build
-            - run: pm2 -v
-            - run: pm2 start ecosystem.config.js --env development
     deploy:
         needs: build
         runs-on:
@@ -35,4 +33,7 @@ jobs:
                   cache: 'npm'
             - run: pm2 -v
             - run: pm2 list
-            # - run: pm2 start ecosystem.config.js --env development
+            - run: sudo pm2 start ecosystem.config.js --env development
+            - run: ls -l
+            - run: ip a
+            - run: pm2 list
