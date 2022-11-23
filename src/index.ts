@@ -13,5 +13,5 @@ const PORT: number = Number(process.env.PORT);
 connectMongoDB();
 app.use(express.json());
 app.use('/auth', authRoutes);
-app.get('/', (_, res: Response) => res.status(200).json({ message: 'Hello World ---(_)---' }));
+app.get('/', (_, res: Response) => res.status(200).json({ message: 'Hello World ---()---' }));
 app.listen(PORT, () => console.log('server running port :' + PORT));
