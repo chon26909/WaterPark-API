@@ -3,6 +3,7 @@ module.exports = {
         {
             name: 'waterpark-api-uat',
             script: './dist/index.js',
+            watch: true,
             env_uat: {
                 NODE_ENV: 'uat',
                 PORT: 4003,

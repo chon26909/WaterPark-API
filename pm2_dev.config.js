@@ -3,6 +3,7 @@ module.exports = {
         {
             name: 'waterpark-api-dev',
             script: './dist/index.js',
+            watch: true,
             env_development: {
                 NODE_ENV: 'development',
                 PORT: 4002,
